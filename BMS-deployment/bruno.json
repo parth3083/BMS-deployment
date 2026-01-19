@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "BMS-deployment",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

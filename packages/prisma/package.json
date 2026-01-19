@@ -1,10 +1,16 @@
 {
   "name": "@repo/db",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "build": "tsc --b",
+    "dev": "pnpm run build && pnpm run start",
+    "start": "node dist/index.js"
+  },
   "dependencies": {
     "@prisma/adapter-pg": "^7.2.0",
     "@prisma/client": "^7.2.0",
@@ -16,6 +22,10 @@
     "@types/node": "^22.15.3"
   },
   "exports": {
-    "./client": "./src/index.ts"
+    "./client": {
+      "types": "./src/index.ts",
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
+    }
   }
 }

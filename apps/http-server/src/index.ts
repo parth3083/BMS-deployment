@@ -35,6 +35,6 @@ app.post("/signup", async (req: Request, res: Response) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(3002, () => {
   console.log(`Server startde on the port http://localhost:3000`);
 });
