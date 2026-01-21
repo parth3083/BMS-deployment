@@ -9,8 +9,8 @@ const server = new WebSocketServer({
 server.on("connection", async (socket) => {
   const created = await client.user.create({
     data: {
-      username: Math.random.toString(),
-      email: Math.random.toString(),
+      username: Math.random().toString(),
+      email: Math.random().toString(),
     },
   });
   if (created.id) {

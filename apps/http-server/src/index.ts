@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import type { Express, Request, Response } from "express";
 import { client } from "@repo/db/client";
