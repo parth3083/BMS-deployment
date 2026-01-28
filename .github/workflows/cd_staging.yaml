@@ -16,6 +16,10 @@ jobs:
           echo "$SSH_KEY" > private_key.pem
           chmod 600 private_key.pem
           ssh -o StrictHostKeyChecking=no -i private_key.pem root@157.245.109.220 << 'EOF'
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            source ~/.profile || true
+            
             cd BMS-deployment
             git pull
             pnpm install
