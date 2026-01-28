@@ -1,0 +1,22 @@
+name: Deplay to Staging
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  redeploy_everything:
+    runs-on: ubuntu-latest
+    name: Deploying everything on the staging server
+    steps:
+      - name: SSH Into Server
+      - run: |
+          echo ${{secrets.PRIVATE_SSH_KEY}} &> ~/ssh_key
+          ssh -i ~/ssh_key root@157.245.109.220
+          cd BMS-deployment/ && git pull 
+          pnpm install
+          pnpm run build
+          pm2 restart http-server
+          pm2 restart ws-server
+          pm2 restart fe-server
+
